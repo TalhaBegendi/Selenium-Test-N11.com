@@ -42,7 +42,6 @@ namespace N11Test
         public void GirisYapButton()
         {
             new WebDriverWait(webDriver, TimeSpan.FromSeconds(10)).Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(kontrolOzellikleri.girisYapButton)).Click();
-            Thread.Sleep(20080);
         }
         public void UrunArama(string userUrunArama)
         {
