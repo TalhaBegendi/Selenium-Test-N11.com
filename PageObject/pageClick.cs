@@ -1,4 +1,4 @@
-﻿//TALHA BEĞENDİ
+//TALHA BEĞENDİ
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,94 +18,88 @@ namespace N11Test
     public class n11Methods
     {
         IWebDriver webDriver;
+        IWebElement element;
         public n11Methods(IWebDriver driver)
         {
             this.webDriver = driver;
         }
         public void MenuKapatButton()
         {
-            webDriver.FindElement(kontrolOzellikleri.menuKapatButton).Click();
-            Thread.Sleep(1080);
+            new WebDriverWait(webDriver, TimeSpan.FromSeconds(10)).Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(kontrolOzellikleri.menuKapatButton)).Click();
         }
         public void GirisYap()
         {
-            webDriver.FindElement(kontrolOzellikleri.girisYap).Click();
-            Thread.Sleep(1200);
+            new WebDriverWait(webDriver, TimeSpan.FromSeconds(10)).Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(kontrolOzellikleri.girisYap)).Click();
         }
         public void EmailGiris(string userEmailGiris)
         {
-            webDriver.FindElement(kontrolOzellikleri.emailGiris).Clear();
-            webDriver.FindElement(kontrolOzellikleri.emailGiris).SendKeys(userEmailGiris);
-            Thread.Sleep(300);
+            new WebDriverWait(webDriver, TimeSpan.FromSeconds(10)).Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(kontrolOzellikleri.emailGiris)).SendKeys(userEmailGiris);
         }
         public void SifreGiris(string userSifreGiris)
         {
-            webDriver.FindElement(kontrolOzellikleri.sifreGiris).Clear();
-            webDriver.FindElement(kontrolOzellikleri.sifreGiris).SendKeys(userSifreGiris);
-            Thread.Sleep(800);
+            new WebDriverWait(webDriver, TimeSpan.FromSeconds(10)).Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(kontrolOzellikleri.sifreGiris)).SendKeys(userSifreGiris);
         }
         public void GirisYapButton()
         {
-            webDriver.FindElement(kontrolOzellikleri.girisYapButton).Click();
-            Thread.Sleep(1080);
+            new WebDriverWait(webDriver, TimeSpan.FromSeconds(10)).Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(kontrolOzellikleri.girisYapButton)).Click();
+            Thread.Sleep(20080);
         }
         public void UrunArama(string userUrunArama)
         {
-            webDriver.FindElement(kontrolOzellikleri.urunArama).Clear();
-            webDriver.FindElement(kontrolOzellikleri.urunArama).SendKeys(userUrunArama);
-            Thread.Sleep(390);
+            new WebDriverWait(webDriver, TimeSpan.FromSeconds(10)).Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(kontrolOzellikleri.urunArama)).SendKeys(userUrunArama);
         }
         public void AraButton()
         {
-            webDriver.FindElement(kontrolOzellikleri.araButton).Click();
-            Thread.Sleep(3050);
+            new WebDriverWait(webDriver, TimeSpan.FromSeconds(10)).Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(kontrolOzellikleri.araButton)).Click();
         }
         public void Sayfa2()
         {
-            webDriver.FindElement(kontrolOzellikleri.sayfa2).Click();
-            Thread.Sleep(1520);
+            new WebDriverWait(webDriver, TimeSpan.FromSeconds(10)).Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(kontrolOzellikleri.sayfa2)).Click();
         }
         public void UrunFavEkle()
-        {   webDriver.FindElement(kontrolOzellikleri.urunFavEkle).Click();
-            Thread.Sleep(1400); 
+        {
+            new WebDriverWait(webDriver, TimeSpan.FromSeconds(10)).Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(kontrolOzellikleri.urunFavEkle)).Click();
         }
         public void Hesabım()
         {
-            webDriver.FindElement(kontrolOzellikleri.hesabım).Click();
-            Thread.Sleep(1420);
+            new WebDriverWait(webDriver, TimeSpan.FromSeconds(10)).Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(kontrolOzellikleri.hesabım)).Click();
         }
         public void FavMenu()
         {
-            webDriver.FindElement(kontrolOzellikleri.favMenu).Click();
-            Thread.Sleep(1400);
+            new WebDriverWait(webDriver, TimeSpan.FromSeconds(10)).Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(kontrolOzellikleri.favMenu)).Click();
         }
         public void FavUrunlerList()
         {
-            webDriver.FindElement(kontrolOzellikleri.favUrunlerList).Click();
-            Thread.Sleep(1500);
+            new WebDriverWait(webDriver, TimeSpan.FromSeconds(10)).Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(kontrolOzellikleri.favUrunlerList)).Click();
         }
         public void FavSil1()
         {
-            webDriver.FindElement(kontrolOzellikleri.favSil1).Click();
-            Thread.Sleep(1000);
+            new WebDriverWait(webDriver, TimeSpan.FromSeconds(10)).Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(kontrolOzellikleri.favSil1)).Click();
         }
 
-            //ASSERT
+        //ASSERT
 
         public bool GirisAssert_01_giris(string girisText)
         {
-            return webDriver.FindElement(kontrolOzellikleri.girisAssert_01_giris).Text == girisText;
+            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
+            element = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(kontrolOzellikleri.girisAssert_01_giris));
+            return element.Text == girisText;
         }
         public bool UrunAramaAssert_02_arama(string aramaText)
         {
-            return webDriver.FindElement(kontrolOzellikleri.urunAramaAssert_02_arama).Text == aramaText;
+            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
+            element = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(kontrolOzellikleri.urunAramaAssert_02_arama));
+            return element.Text == aramaText;
         }
         public bool Sayfa2Assert_03_sayfa2(string sayfa2Text)
         {
-            return webDriver.FindElement(kontrolOzellikleri.sayfa2Assert_03_sayfa2).Text == sayfa2Text;
+            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
+            element = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(kontrolOzellikleri.sayfa2Assert_03_sayfa2));
+            return element.Text == sayfa2Text;
         }
         public bool UrunFavEkleAssert_04_favEkle()
         {
+            Thread.Sleep(350);
             if (webDriver.FindElements(kontrolOzellikleri.urunFavEkleAssert_04_favEkle).Count == 1)
             {
                 return true;
@@ -116,6 +110,7 @@ namespace N11Test
         }
         public bool UrunFavSilAssert_05_favSil()
         {
+            Thread.Sleep(350);
             if (webDriver.FindElements(kontrolOzellikleri.urunFavSilAssert_05_favSil).Count == 0)
             {
                 return true;
