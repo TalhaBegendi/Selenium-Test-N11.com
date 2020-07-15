@@ -1,4 +1,4 @@
-﻿//TALHA BEĞENDİ
+//TALHA BEĞENDİ
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support;
 using OpenQA.Selenium.Support.UI;
 using NUnit.Framework;
@@ -16,7 +17,6 @@ using Assert = NUnit.Framework.Assert;
 
 namespace N11Test
 {
-    [TestClass]
     public class ChromeAcilisN11
     {
         IWebDriver Webdriver;
@@ -26,7 +26,7 @@ namespace N11Test
             Webdriver = new ChromeDriver();
             Webdriver.Manage().Window.Maximize();
             Webdriver.Navigate().GoToUrl("https://www.n11.com/");
-            Thread.Sleep(1000);
+            Thread.Sleep(10000);
         }
         [Test, Category("N11 Test")]
         public void Senaryo_01_Giris()
@@ -53,6 +53,7 @@ namespace N11Test
             n11Methods sayfa2 = new n11Methods(Webdriver);
             sayfa2.Sayfa2();
             Assert.IsTrue(sayfa2.Sayfa2Assert_03_sayfa2("2"), "Sayfa2'ye Ulasildi.");
+            sayfa2.UrunFavEkle();
         }
         [Test, Category("N11 Test")]
         public void Senaryo_04_FavoriEkleme()
