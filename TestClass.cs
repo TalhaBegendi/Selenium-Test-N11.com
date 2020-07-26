@@ -26,7 +26,6 @@ namespace N11Test
             Webdriver = new ChromeDriver();
             Webdriver.Manage().Window.Maximize();
             Webdriver.Navigate().GoToUrl("https://www.n11.com/");
-            Thread.Sleep(10000);
         }
         [Test, Category("N11 Test")]
         public void Senaryo_01_Giris()
